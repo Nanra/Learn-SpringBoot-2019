@@ -42,6 +42,4 @@ public class BelajarConfiguration {
         return bean;
     }
 
-
-
 }
