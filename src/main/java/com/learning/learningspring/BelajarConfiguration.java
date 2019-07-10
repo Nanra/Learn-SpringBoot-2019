@@ -7,13 +7,18 @@ import com.learning.learningspring.model.SampleBean;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
+
+import java.util.UUID;
 
 @SpringBootApplication
 public class BelajarConfiguration {
 
     @Bean(name = "method1")
+    @Scope("prototype")
     public DataBean createDataBean(){
-        DataBean bean = new DataBean("Nanra Sukedy");
+        String randomId = UUID.randomUUID().toString();
+        DataBean bean = new DataBean(randomId);
         return bean;
 
     }

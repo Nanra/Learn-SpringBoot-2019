@@ -29,10 +29,22 @@ public class LearningSpringApplication {
 		// Akan Return value = Hasibuan
 //		System.out.println(bean.getSampleBean().getDataBean().getValue());
 
-		SayHello dataBean = context.getBean(SayHello.class);
-		String response = dataBean.hello("Nanra Sukedy");
+		// Materi Component & Component Injection
+//		SayHello dataBean = context.getBean(SayHello.class);
+//		String response = dataBean.hello("Nanra Sukedy");
+//		System.out.println(response);
 
-		System.out.println(response);
+		// Materi Bean Scope / Penciptaan Bean oleh Spring
+		DataBean bean1 = context.getBean("method1", DataBean.class);
+		System.out.println(bean1.getValue());
+
+		DataBean bean2 = context.getBean("method1", DataBean.class);
+		System.out.println(bean2.getValue());
+
+		DataBean bean3 = context.getBean("method1", DataBean.class);
+		System.out.println(bean3.getValue());
+
+
 	}
 
 }
