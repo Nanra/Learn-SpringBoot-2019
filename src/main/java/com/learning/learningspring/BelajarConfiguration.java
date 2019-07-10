@@ -2,6 +2,7 @@ package com.learning.learningspring;
 
 
 import com.learning.learningspring.model.DataBean;
+import com.learning.learningspring.model.OtherBean;
 import com.learning.learningspring.model.SampleBean;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -33,4 +34,14 @@ public class BelajarConfiguration {
         SampleBean bean = new SampleBean(data);
         return bean;
     }
+
+    @Bean
+    public OtherBean createOtherBean(@Qualifier("method1") DataBean param1, SampleBean param2){
+        OtherBean bean = new OtherBean(param1, param2);
+
+        return bean;
+    }
+
+
+
 }
