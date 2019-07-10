@@ -35,14 +35,19 @@ public class LearningSpringApplication {
 //		System.out.println(response);
 
 		// Materi Bean Scope / Penciptaan Bean oleh Spring
-		DataBean bean1 = context.getBean("method1", DataBean.class);
-		System.out.println(bean1.getValue());
+//		DataBean bean1 = context.getBean("method1", DataBean.class);
+//		System.out.println(bean1.getValue());
+//
+//		DataBean bean2 = context.getBean("method1", DataBean.class);
+//		System.out.println(bean2.getValue());
+//
+//		DataBean bean3 = context.getBean("method1", DataBean.class);
+//		System.out.println(bean3.getValue());
 
-		DataBean bean2 = context.getBean("method1", DataBean.class);
-		System.out.println(bean2.getValue());
+		// Materi Aware
 
-		DataBean bean3 = context.getBean("method1", DataBean.class);
-		System.out.println(bean3.getValue());
+		OtherBean bean = context.getBean(OtherBean.class);
+		bean.checkContext();
 
 
 	}
