@@ -7,7 +7,10 @@ import com.learning.learningspring.model.SayHello;
 import com.learning.learningspring.service.DatabaseConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cglib.core.Local;
 import org.springframework.context.ApplicationContext;
+
+import java.util.Locale;
 
 public class LearningSpringApplication {
 
@@ -15,6 +18,9 @@ public class LearningSpringApplication {
 
 		// Materi Profile
 		System.setProperty("spring.profiles.active", "development");
+
+		// Materi Internationatlization
+		Locale.setDefault(new Locale("in", "ID"));
 
 		ApplicationContext context = SpringApplication.run(BelajarConfiguration.class, args);
 //		DataBean data = context.getBean(DataBean.class);
@@ -38,9 +44,9 @@ public class LearningSpringApplication {
 //		System.out.println(bean.getSampleBean().getDataBean().getValue());
 
 		// Materi Component & Component Injection
-//		SayHello dataBean = context.getBean(SayHello.class);
-//		String response = dataBean.hello("Nanra Sukedy");
-//		System.out.println(response);
+		SayHello dataBean = context.getBean(SayHello.class);
+		String response = dataBean.hello("Nanra Sukedy");
+		System.out.println(response);
 
 		// Materi Bean Scope / Penciptaan Bean oleh Spring
 //		DataBean bean1 = context.getBean("method1", DataBean.class);

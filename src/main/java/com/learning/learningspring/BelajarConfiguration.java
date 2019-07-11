@@ -7,10 +7,14 @@ import com.learning.learningspring.model.SampleBean;
 import com.learning.learningspring.service.DatabaseConfiguration;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.support.ResourceBundleMessageSource;
 
+import javax.annotation.Resource;
+import java.util.ResourceBundle;
 import java.util.UUID;
 
 @SpringBootApplication
@@ -59,6 +63,13 @@ public class BelajarConfiguration {
     @Profile("production")
     public DatabaseConfiguration createProdDatabaseConfig(){
         return new DatabaseConfiguration("DATABASE PRODUCTION");
+    }
+
+    @Bean(name = "messageSource")
+    public MessageSource createMessageSource(){
+        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        messageSource.setBasename("messages.hello");
+        return messageSource;
     }
 
 }
