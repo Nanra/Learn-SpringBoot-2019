@@ -1,20 +1,18 @@
 package com.learning.learningspring;
 
-import com.learning.learningspring.model.DataBean;
-import com.learning.learningspring.model.OtherBean;
-import com.learning.learningspring.model.SampleBean;
-import com.learning.learningspring.model.SayHello;
+import com.learning.learningspring.model.*;
 import com.learning.learningspring.service.DatabaseConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cglib.core.Local;
 import org.springframework.context.ApplicationContext;
 
+import java.io.IOException;
 import java.util.Locale;
 
 public class LearningSpringApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		// Materi Profile
 		System.setProperty("spring.profiles.active", "development");
@@ -25,6 +23,10 @@ public class LearningSpringApplication {
 		ApplicationContext context = SpringApplication.run(BelajarConfiguration.class, args);
 //		DataBean data = context.getBean(DataBean.class);
 //		System.out.println(data.getValue());
+
+		FileBean fileBean = context.getBean(FileBean.class);
+		fileBean.printInfo();
+
 
 		// Materi untuk Profile
 		DatabaseConfiguration config = context.getBean(DatabaseConfiguration.class);
@@ -44,9 +46,9 @@ public class LearningSpringApplication {
 //		System.out.println(bean.getSampleBean().getDataBean().getValue());
 
 		// Materi Component & Component Injection
-		SayHello dataBean = context.getBean(SayHello.class);
-		String response = dataBean.hello("Nanra Sukedy");
-		System.out.println(response);
+//		SayHello dataBean = context.getBean(SayHello.class);
+//		String response = dataBean.hello("Nanra Sukedy");
+//		System.out.println(response);
 
 		// Materi Bean Scope / Penciptaan Bean oleh Spring
 //		DataBean bean1 = context.getBean("method1", DataBean.class);
