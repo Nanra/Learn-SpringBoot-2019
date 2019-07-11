@@ -4,6 +4,7 @@ import com.learning.learningspring.model.DataBean;
 import com.learning.learningspring.model.OtherBean;
 import com.learning.learningspring.model.SampleBean;
 import com.learning.learningspring.model.SayHello;
+import com.learning.learningspring.service.DatabaseConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -12,9 +13,16 @@ public class LearningSpringApplication {
 
 	public static void main(String[] args) {
 
+		// Materi Profile
+		System.setProperty("spring.profiles.active", "development");
+
 		ApplicationContext context = SpringApplication.run(BelajarConfiguration.class, args);
 //		DataBean data = context.getBean(DataBean.class);
 //		System.out.println(data.getValue());
+
+		// Materi untuk Profile
+		DatabaseConfiguration config = context.getBean(DatabaseConfiguration.class);
+		System.out.println(config.getValue());
 
 //		SampleBean data = context.getBean(SampleBean.class);
 //		System.out.println(data.getDataBean().getValue());
@@ -45,9 +53,8 @@ public class LearningSpringApplication {
 //		System.out.println(bean3.getValue());
 
 		// Materi Aware
-
-		OtherBean bean = context.getBean(OtherBean.class);
-		bean.checkContext();
+//		OtherBean bean = context.getBean(OtherBean.class);
+//		bean.checkContext();
 
 
 	}
