@@ -24,8 +24,13 @@ public class LearningSpringApplication {
 //		DataBean data = context.getBean(DataBean.class);
 //		System.out.println(data.getValue());
 
-		FileBean fileBean = context.getBean(FileBean.class);
-		fileBean.printInfo();
+		// Materi Resource Loader
+//		FileBean fileBean = context.getBean(FileBean.class);
+//		fileBean.printInfo();
+
+		Author author = context.getBean(Author.class);
+		System.out.println(author.getName());
+		System.out.println(author.getEmail());
 
 
 		// Materi untuk Profile

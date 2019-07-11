@@ -1,24 +1,40 @@
 package com.learning.learningspring;
 
 
+import com.learning.learningspring.model.Author;
 import com.learning.learningspring.model.DataBean;
 import com.learning.learningspring.model.OtherBean;
 import com.learning.learningspring.model.SampleBean;
 import com.learning.learningspring.service.DatabaseConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.core.env.Environment;
 
 import javax.annotation.Resource;
 import java.util.ResourceBundle;
 import java.util.UUID;
 
 @SpringBootApplication
+@PropertySources({
+        @PropertySource("classpath:/configuration/contoh.properties")
+})
 public class BelajarConfiguration {
+
+    @Autowired
+    private Environment environment;
+
+//    @Bean
+//    public Author createAuthor(){
+//        String name = environment.getProperty("author.name");
+//        String email = environment.getProperty("author.email");
+//        Author author = new Author(name, email);
+//        return author;
+//    }
+
 
     @Bean(name = "method1")
     @Scope("prototype")
